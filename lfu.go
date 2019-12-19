@@ -349,3 +349,7 @@ func (it *lfuItem) IsExpired(now *time.Time) bool {
 	}
 	return it.expiration.Before(*now)
 }
+
+func (c *LFUCache) SetSize(size int) {
+
+}

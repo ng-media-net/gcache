@@ -305,3 +305,7 @@ func (si *simpleItem) IsExpired(now *time.Time) bool {
 	}
 	return si.expiration.Before(*now)
 }
+
+func (c *SimpleCache) SetSize(size int) {
+
+}

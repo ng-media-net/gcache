@@ -28,6 +28,7 @@ type Cache interface {
 	Keys(checkExpired bool) []interface{}
 	Len(checkExpired bool) int
 	Has(key interface{}) bool
+	SetSize(size int)
 
 	statsAccessor
 }

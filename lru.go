@@ -315,3 +315,20 @@ func (it *lruItem) IsExpired(now *time.Time) bool {
 	}
 	return it.expiration.Before(*now)
 }
+
+func (c *LRUCache) SetSize(size int) {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+	if size <= 0 {
+		return
+	}
+	if len(c.items) <= size {
+		c.size = size
+		return
+	}
+	diffInSize := c.size - size
+	for i := 0; i < diffInSize; i++ {
+		c.removeElement(c.evictList.Back())
+	}
+	c.size = size
+}

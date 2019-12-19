@@ -454,3 +454,7 @@ func (al *arcList) RemoveTail() interface{} {
 func (al *arcList) Len() int {
 	return al.l.Len()
 }
+
+func (c *ARC) SetSize(size int) {
+
+}
